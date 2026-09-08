@@ -120,6 +120,16 @@
       - AnomalyCoreGravity
   # LP edit end
 
+  # LP edit start
+- type: entity
+  parent: GravityGenerator
+  id: GravityGeneratorOff
+  suffix: Off
+  components:
+  - type: GravityGenerator
+    GravityActive: false
+  # LP edit end
+
 - type: entity
   id: GravityGeneratorMini
   parent: [ GravityGeneratorBase, ConstructibleMachine ]

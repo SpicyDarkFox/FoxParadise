@@ -229,20 +229,11 @@
           doAfter: 2
 
     - node: final
-      entity: GravityGenerator
+      entity: GravityGeneratorOff
       actions:
         - !type:AppearanceChange
       edges:
         - to: prefinal
-          completed:
-          - !type:SpawnPrototypeAtContainer   #гарантируем, что пвещи будут на месте
-            container: board
-            prototype: LPPGravityGeneratorCircuitboard
-            amount: 1
-          - !type:SpawnPrototypeAtContainer
-            container: anomaly
-            prototype: AnomalyCoreGravity
-            amount: 1
           conditions:
           - !type:EntityAnchored
             anchored: false
@@ -259,7 +250,7 @@
   targetNode: final
   category: construction-category-structures
   objectType: Structure
-  placementMode: SnapgridCenter
+  placementMode: AlignTileAny
   canRotate: true
   canBuildInImpassable: false
   conditions:
@@ -340,8 +331,9 @@
           doAfter: 2
       - to: machineFrame
         completed:
-        - !type:EmptyContainer
-          container: board
+        - !type:SpawnPrototype
+          prototype: LPPLargeRocketCircuitboard
+          amount: 1
         steps:
         - tool: Prying
           doAfter: 2
@@ -375,10 +367,6 @@
       edges:
         - to: circuitFixed
           completed:
-          - !type:SpawnPrototypeAtContainer   #гарантируем, что пвещи будут на месте
-            container: board
-            prototype: LPPLargeRocketCircuitboard
-            amount: 1
           - !type:SpawnPrototype
             prototype: SheetPlasma1
             amount: 5
@@ -402,7 +390,7 @@
   targetNode: final
   category: construction-category-structures
   objectType: Structure
-  placementMode: SnapgridCenter
+  placementMode: AlignTileAny
   canRotate: true
   canBuildInImpassable: false
   conditions:
@@ -484,8 +472,9 @@
           doAfter: 2
       - to: machineFrame
         completed:
-        - !type:EmptyContainer
-          container: board
+        - !type:SpawnPrototype
+          prototype: LPPLargeGyroscopeCircuitboard
+          amount: 1
         steps:
         - tool: Prying
           doAfter: 2
@@ -496,11 +485,6 @@
         - !type:AppearanceChange
       edges:
         - to: circuitInserted
-          completed:
-          - !type:SpawnPrototypeAtContainer   #гарантируем, что вещи будут на месте
-            container: board
-            prototype: LPPLargeGyroscopeCircuitboard
-            amount: 1
           conditions:
             - !type:EntityAnchored
           steps:
